@@ -1,0 +1,329 @@
+// Fixes tab behavior after using the skip link in IE or Chrome
+Drupal.behaviors.osBase_skipLinkFocus = {
+	attach : function(ctx) {
+		var $ = jQuery, $skip = $('#skip-link a', ctx);
+
+		$skip.click(function(e) {
+			var target = $skip[0].hash.replace('#', '');
+
+			setTimeout(function() {
+				$('a[name="' + target + '"]').attr('tabindex', -1).focus();
+			}, 100);
+		});
+	}
+};
+
+// Ensure that publication pagination displays.
+/*
+jQuery(document).ready(function() {
+    if (jQuery('#biblio-search-form #edit-search-form').length) {
+        jQuery('#biblio-search-form #edit-search-form').removeClass('collapsed');
+    }
+
+    if (jQuery('#biblio-search-form #edit-filters').length) {
+        jQuery('#biblio-search-form #edit-filters').removeClass('collapsed');
+    }
+});
+*/
+
+// Adding tint class to media embed, if there is a tint embed.
+jQuery(document).ready(function() {
+	if(jQuery('.media-element-container .tintup').length > 0) {
+        jQuery('.media-element-container .tintup').each(function (index) {
+        	jQuery(this).parents('.media-element-container').addClass('tint');
+		});
+	}
+});
+
+// Ensure that publication pagination displays.
+jQuery(document).ready(function() {
+	/*
+   var oldhtml = jQuery('#content #biblio-header').html();
+   var newhtml = oldhtml.replace(/\[/g, '');
+   newhtml = newhtml.replace(/\]/g, '');
+    jQuery('#content #biblio-header').html(newhtml);
+	*/
+});
+
+// Ensure that publication pagination displays.
+jQuery(document).ready(function() {
+	if (jQuery('.pager').length) {
+		jQuery('.pager').css('display', '');
+	}
+});
+
+jQuery(document).ready(function() {
+	// If the next button is clicked.
+	jQuery(".tabs-next").click( function() {
+		// Stop the animation.
+		clearTimeout(window.uwb_animate);
+
+		// Go the next slide.
+		nextslide_uwb();
+	});
+
+	// If the previous button is clicked.
+	jQuery(".tabs-previous").click( function() {
+		// Stop the animation.
+		clearTimeout(window.uwb_animate);
+
+		// Go the next slide.
+		previousslide_uwb();
+	});
+
+	// If a block is clicked in the homepage banner, move to that image.
+    jQuery(".homepage_banners_paginator a").click( function(e) {
+
+    	// Stop the default behaviour.
+        e.preventDefault();
+
+        // Stop the animation.
+        clearTimeout(window.uwb_animate);
+
+        // Get the new page from the selected block.
+        var new_page = jQuery(this).attr('data-pagenumber') - 1;
+
+        // Get the current slide, banner, banner control and paginator.
+        $currentslide = jQuery('.uw-homepage-banners-figure.element-selected');
+        $currentpaginator = jQuery('.homepage_banners_paginator a.hpb_selected');
+
+        // Remove the selected elements.
+        $currentslide.removeClass('element-selected');
+        $currentpaginator.removeClass('hpb_selected');
+
+        // Step through each image and if the new page remove the invisible class and add the selected class.
+        jQuery('.uw-homepage-banners-figure').each(function( index ) {
+        	if(index == new_page) {
+                jQuery(this).removeClass('element-invisible');
+        		jQuery(this).addClass('element-selected');
+			}
+        });
+
+        // Add the selected class to the new block.
+        new_page = new_page + 1;
+        jQuery('.homepage_banners_paginator').find('[data-pagenumber="' + new_page + '"]').addClass('hpb_selected');
+
+        // Add the invisible class to the current slide, banner, banner control.
+        $currentslide.addClass('element-invisible');
+
+        // Start the animation again.
+        if(jQuery('.slideshow-control').attr('title') == "Pause") {
+            window.uwb_animate = setTimeout(nextslide_uwb, 6000);
+        }
+    });
+
+	// If the play/pause button is clicked.
+	jQuery('.slideshow-control').click(function() {
+		// If the pause button is clicked.
+		if(jQuery('.slideshow-control').attr('title') == "Pause") {
+
+			// Set the control title to Play.
+			jQuery('.slideshow-control').attr('title', 'Play');
+
+			// Remove the pause class from the control.
+			jQuery('.slideshow-control').removeClass('pause');
+
+			// Add the play class to the control.
+			jQuery('.slideshow-control').addClass('play');
+
+			// Stop the animation.
+			clearTimeout(window.uwb_animate);
+		}
+		// If the play button is clicked.
+		else if(jQuery('.slideshow-control').attr('title') == "Play") {
+
+			// Set the control title to Pause.
+			jQuery('.slideshow-control').attr('title', 'Pause');
+
+			// Remove the play class from the control.
+			jQuery('.slideshow-control').removeClass('play');
+
+			// Add the pause class to the control.
+			jQuery('.slideshow-control').addClass('pause');
+
+			// Go to the next slide and restart teh animation.
+			nextslide_uwb();
+		}
+	});
+
+	// If there are homepage banners on the page, set the animations and start the rotation.
+	if(jQuery(".uw-homepage-banners-figure").length > 0) {
+
+
+		// Set the counter to 0.
+		var counter = 0;
+
+		// If there are images, set the first to selected and the rest to invisible.
+		jQuery(".uw-homepage-banners-figure").each(function (index) {
+
+			// If not on the first image, set to invisible, if on the first image, set to selected.
+			if (index != 0) {
+				jQuery(this).addClass('element-invisible');
+            }
+			else {
+				jQuery(this).addClass('element-selected');
+			}
+		});
+
+		// If the Play button is clicked, start the animation and rotation.
+		if(jQuery('.slideshow-control').attr('title') == "Pause") {
+			window.uwb_animate = setTimeout(nextslide_uwb, 6000);
+		}
+	}
+
+	// Function to move to the next slide.
+	function nextslide_uwb() {
+
+		// Set the current slide, banner and banner control.
+		$currentslide = jQuery('.uw-homepage-banners-figure.element-selected');
+		$currentpaginator = jQuery('.homepage_banners_paginator a.hpb_selected');
+
+		//  If there is a current slide, find the next slide, caption and banner control.
+		if ($currentslide.length > 0) {
+            var nextpage = Number($currentpaginator.attr("data-pagenumber"));
+            nextpage = nextpage + 1;
+			$nextslide = $currentslide.next();
+			$nextpaginator = jQuery('.homepage_banners_paginator').find('[data-pagenumber="' + nextpage + '"]');
+		}
+
+		//  If there is not a next slide (because we are at the end),
+		//  or a current slide (because an older slide that is no longer in the list was bookmarked),
+		//  the next slide is the first slide
+		if (!$nextslide.length || !$currentslide.length) {
+            var nextpage = 1;
+			$nextslide = jQuery('.uw-homepage-banners-figure').first();
+            $nextpaginator = jQuery('.homepage_banners_paginator').find('[data-pagenumber="' + nextpage + '"]');
+		}
+
+		// Remove the element-selected class from current slide, caption and banner control.
+		$currentslide.removeClass('element-selected');
+		$currentpaginator.removeClass('hpb_selected');
+
+		// Add the element-invisible class from current slide, caption and banner control.
+		$currentslide.addClass('element-invisible');
+
+		// Remove the element-invisible class from next slide, caption and banner control.
+		$nextslide.removeClass('element-invisible');
+
+		// Add the element-selected class from current slide, caption and banner control.
+		$nextslide.addClass('element-selected');
+		$nextpaginator.addClass('hpb_selected');
+
+		//retreive_uwb($nextslide.attr('href'));
+		//  If they play button is on, then restart the animation.
+		if(jQuery('.slideshow-control').attr('title') == "Pause") {
+			window.uwb_animate = setTimeout(nextslide_uwb, 6000);
+		}
+	}
+
+	// Function to move to the next slide.
+	function previousslide_uwb() {
+
+		// Set the current slide, banner and banner control.
+        $currentslide = jQuery('.uw-homepage-banners-figure.element-selected');
+        $currentpaginator = jQuery('.homepage_banners_paginator a.hpb_selected');
+
+		//  If there is a current slide, find the previous slide, caption and banner control.
+		if ($currentslide.prev().length > 0) {
+            var previouspage = Number($currentpaginator.attr("data-pagenumber"));
+            previouspage = previouspage - 1;
+			$previousslide = $currentslide.prev();
+            $previouspaginator = jQuery('.homepage_banners_paginator').find('[data-pagenumber="' + previouspage + '"]');
+		}
+
+		//  If there is not a next slide (because we are at the end),
+		//  or a current slide (because an older slide that is no longer in the list was bookmarked),
+		//  the next slide is the first slide
+		else {
+            var previouspage = 3;
+			$previousslide = jQuery('.uw-homepage-banners-figure').last();
+            $previouspaginator = jQuery('.homepage_banners_paginator').find('[data-pagenumber="' + previouspage + '"]');
+		}
+
+		// Remove the element-selected class from current slide, caption and banner control.
+		$currentslide.removeClass('element-selected');
+        $currentpaginator.removeClass('hpb_selected');
+
+		// Add the element-invisible class from current slide, caption and banner control.
+		$currentslide.addClass('element-invisible');
+
+		// Remove the element-invisible class from previous slide, caption and banner control.
+		$previousslide.removeClass('element-invisible');
+
+		// Add the element-selected class from next slide, caption and banner control.
+		$previousslide.addClass('element-selected');
+        $previouspaginator.addClass('hpb_selected');
+
+		//retreive_uwb($nextslide.attr('href'));
+		//  If they play button is on, then restart the animation.
+		if(jQuery('.slideshow-control').attr('title') == "Pause") {
+			window.uwb_animate = setTimeout(nextslide_uwb, 6000);
+		}
+	}
+});
+
+jQuery(document).ready(function() {
+	jQuery(".cal-export").click(function() {
+		jQuery(".attachment.attachment-before ul").slideToggle();
+		jQuery(".os_events_export_links .last").slideToggle();
+
+	});
+
+    jQuery("figure img").each(function() {
+        var imgwidth = jQuery(this).attr('width');
+        jQuery(this).parent().find('figcaption').css({
+            "width" : + imgwidth
+        });
+    });
+});
+;(function menuClick($, window, document) {
+    'use strict';
+    jQuery(document).ready(handleDocumentReady);
+    function handleDocumentReady () {
+        var $menu_toggle = jQuery('#branding_header');
+        var $menu_tab = jQuery('.responsive-nav-menu .tabs .content');
+        var $menu_button = jQuery('.navigation-button__toggle');
+        var setTabHeight = function() {
+            var $window = jQuery(window);
+            var $tab_height = jQuery('#page_wrap').innerHeight();
+            var $set_tab_height = '.responsive-nav-menu .tabs';
+            jQuery($set_tab_height).css('min-height',$tab_height);
+        };
+
+
+
+        var resetTabHeight = function() {
+               var delay = 200; //1 second;
+               setTimeout(function() {
+                var $set_tab_height = '.responsive-nav-menu .tabs';
+                    jQuery($set_tab_height).css('min-height', '');
+                }, delay);
+        };
+        var openMenu = function() {
+            $menu_toggle.attr({
+                'data-nav-visible': 'true'
+            });
+            $menu_button.attr({
+                'aria-expanded': 'true'
+            });
+            setTabHeight();
+        };
+        var closeMenu = function() {
+            $menu_toggle.attr({
+                'data-nav-visible': 'false'
+            });
+            $menu_button.attr({
+                'aria-expanded': 'false'
+            });
+            resetTabHeight();
+        };
+        $menu_button.on('click', function(e) {
+          if ($(this).attr('aria-expanded') == 'true') {
+            closeMenu();
+          }
+          else {
+            openMenu();
+          }
+        });
+    }
+})(window.jQuery, window, window.document);

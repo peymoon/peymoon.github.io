@@ -1,0 +1,62 @@
+/**
+ * @file
+ */
+
+(function ($) {
+
+    Drupal.behaviors.uw_virtual_site_homepage = {
+
+        attach: function (context, settings) {
+
+            // RT#615890: Fixing extra space at the end of some names.
+            $(document).ready(function () {
+                $('.biblio-entry span.biblio-authors').each(function () {
+                    str = $(this).html();
+                    str = str.replace(/\s*$/,"");
+                    str = str.replace(/\s*,/g, ",");
+                    $(this).html(str);
+                });
+            });
+
+            // Get all descriptions for the links in homepage banners.
+            $('#edit-field-uw-homepage-banners #field-uw-homepage-banners-values .field-name-field-uw-homepage-banners-link .description').each(function (index) {
+
+               // If we are on the Enter a link that you image will go to description, move it.
+               if ($(this).html() == "Enter a link that your image will go to.") {
+
+                   // Move the div to under the URL link textbox.
+                   $(this).appendTo($(this).parent().find('.link-field-url'));
+               }
+            });
+
+            // If there is a biblio header remove the [ and ].
+            if ($('#content #biblio-header').length > 0) {
+
+                // Remove the [ and ] from the biblio sort links.
+                var oldhtml = $('#content #biblio-header').html();
+                var newhtml = oldhtml.replace(/\[/g, '');
+                newhtml = newhtml.replace(/\]/g, '');
+                $('#content #biblio-header').html(newhtml);
+            }
+
+            if ($('.biblio-filter-status').length > 0) {
+                $('#biblio-search-form').append($('.biblio-filter-status'));
+            }
+
+            // If there is a twitter feed in the sidebar, set the max-height to the height of the content, only if the content height is larger than the preset max-height.
+            if ($('.twitter-sidebar-wrapper').length > 0) {
+                if ($('#content').length > 0) {
+                    if ($('#content').height() > $('.twitter-sidebar-wrapper').css('max-height').replace('px', '')) {
+                        $('.twitter-sidebar-wrapper').css('max-height', $('#content').height() + 'px');
+                    }
+                }
+
+                if ($('.personal_frontpage_uw_scholar').length > 0) {
+                    if ($('.personal_frontpage_uw_scholar').height() > $('.twitter-sidebar-wrapper').css('max-height').replace('px', '')) {
+                        $('.twitter-sidebar-wrapper').css('max-height', $('.personal_frontpage_uw_scholar').height() + 'px');
+                    }
+                }
+            }
+        }
+    };
+})(jQuery);

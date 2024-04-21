@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/</loc>
+  <lastmod>2020-09-20T19:11:05+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/index.html</loc>
+  <lastmod>2020-09-20T19:11:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/research.html</loc>
+  <lastmod>2020-09-20T19:24:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/cpsc340.html</loc>
+  <lastmod>2020-09-20T08:10:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/files/CV_Peyman_Gholami.pdf</loc>
+  <lastmod>2020-09-20T06:13:37+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/teaching/cpsc340/</loc>
+  <lastmod>2020-09-29T19:52:34+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/teaching/cpsc340/?C=N;O=D</loc>
+  <lastmod>2020-09-29T19:52:34+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/teaching/cpsc340/?C=M;O=A</loc>
+  <lastmod>2020-09-29T19:52:34+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/teaching/cpsc340/?C=S;O=A</loc>
+  <lastmod>2020-09-29T19:52:34+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/teaching/cpsc340/?C=D;O=A</loc>
+  <lastmod>2020-09-29T19:52:34+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/teaching/cpsc340/tutorial1.pdf</loc>
+  <lastmod>2020-09-20T19:33:44+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/teaching/cpsc340/?C=N;O=A</loc>
+  <lastmod>2020-09-29T19:52:34+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/teaching/cpsc340/?C=M;O=D</loc>
+  <lastmod>2020-09-29T19:52:34+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/teaching/cpsc340/?C=S;O=D</loc>
+  <lastmod>2020-09-29T19:52:34+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://www.cs.ubc.ca/~peymang/teaching/cpsc340/?C=D;O=D</loc>
+  <lastmod>2020-09-29T19:52:34+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
+</urlset>

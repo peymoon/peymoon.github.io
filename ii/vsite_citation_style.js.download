@@ -1,0 +1,36 @@
+(function ($) {
+
+    Drupal.behaviors.vsite_citation_style = {
+
+        attach: function (context, settings) {
+
+            // If the citation style select list changes, show the new citation example.
+            $('#citation_style').change(function() {
+
+                // Variable used to store response from ajax call.
+                var new_style_html;
+
+                 console.log(Drupal.settings.basePath + "?q=vsite_citation_style/citation_example&new_biblio_style=" + $(this).val());
+                // Make the ajax call, set to synchronous so that we wait to get a response.
+                $.ajax({
+                    type: 'get',
+                    async: false,
+                    url: Drupal.settings.basePath + "?q=vsite_citation_style/citation_example&new_biblio_style=" + $(this).val(),
+                    // If we have success set to the global variable, so that we can use it later to markup.
+                    success: function(data) {
+                        new_style_html = data;
+                    }
+                });
+
+                // If there is no new citation style div, create the div and add the appropriate markup.
+                // If there is a new citation style div, update the markup.
+                if ($('.form-item-citation-style #new-biblio-style').length === 0) {
+                    $('.form-item-citation-style .description').append('<div id="new-biblio-style">' + new_style_html + '<div>');
+                }
+                else {
+                    $('.form-item-citation-style #new-biblio-style').html(new_style_html);
+                }
+            });
+        }
+    };
+})(jQuery);
