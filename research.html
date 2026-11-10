@@ -26,6 +26,32 @@
   
   
   
+<style>
+  .rs{background:#fff;color:#1b2430;font-family:'Jost',sans-serif;padding:8.5rem 0 4rem}
+  .rs-wrap{max-width:880px;margin:0 auto;padding:0 20px}
+  .rs h1{font-size:2.3rem;font-weight:700;color:#011e3c;margin:0 0 .8rem}
+  .rs-intro{font-size:1.05rem;line-height:1.7;color:#3a4552;margin:0 0 .4rem}
+  .rs-interests{font-size:.98rem;color:#5b6675;margin:0 0 2.2rem}
+  .rs h2{font-size:1.35rem;font-weight:600;color:#011e3c;margin:0 0 .6rem;padding-bottom:.5rem;border-bottom:1px solid #e3e8ee}
+  .rs a{color:#0055b7;text-decoration:none}
+  .rs a:hover{text-decoration:underline}
+  .rs-title a{color:#011e3c;font-weight:600}
+  .rs-item{display:flex;gap:1.6rem;align-items:center;padding:1.3rem .9rem;border-radius:8px}
+  .rs-item.hl{background:#eef4fb}
+  .rs-item + .rs-item{margin-top:.6rem}
+  .rs-thumb{flex:0 0 200px;width:200px;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:#0b1626}
+  .rs-thumb img,.rs-thumb video{width:100%;height:100%;object-fit:cover;display:block}
+  .rs-title{font-size:1.12rem;font-weight:600;color:#011e3c;margin:0 0 .15rem}
+  .rs-venue{font-style:italic;color:#5b6675;font-size:.95rem;margin:0 0 .3rem}
+  .rs-venue b{font-style:normal;color:#b5452b;font-weight:600}
+  .rs-links{font-size:.95rem;margin:0 0 .45rem}
+  .rs-desc{font-size:.97rem;line-height:1.6;color:#3a4552;margin:0}
+  @media(max-width:600px){
+    .rs{padding-top:7rem}
+    .rs-item{flex-direction:column;align-items:stretch;gap:.9rem;padding:1.2rem .6rem}
+    .rs-thumb{flex:none;width:100%}
+  }
+</style>
 </head>
 <body>
 <section class="menu cid-s48OLK6784" once="menu" id="menu1-1m">
@@ -71,182 +97,65 @@
 
 </section>
 
-  <section class="content14 cid-sb0wvJu7mt mbr-parallax-background" id="content14-1x">
-    
-    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(255, 255, 255);"></div>
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 col-lg-10">
-                    <h3 class="mbr-section-title mbr-fonts-style mb-4 display-5">
-                        <strong>Research interests</strong></h3>
-                <ul class="list mbr-fonts-style display-7">
-                    <li>Deep Learning
-</li><li>Image Processing
-</li><li>Machine Learning
-</li><li>Computer Vision
-</li><li>Medical Imaging
-</li><li>Artificial Intelligence</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+<main class="rs">
+  <div class="rs-wrap">
+    <h1>Research</h1>
+    <p class="rs-intro">I work on computer vision and machine learning. Lately my focus has been on generative models: making them easier to control and edit, and training multimodal models with less labeled data.</p>
+    <p class="rs-interests">A full list of publications is in my <a href="files/CV_Peyman_Gholami.pdf">CV</a>.</p>
 
-<section class="features17 cid-sb0t81kYNe" id="features18-1v">
+    <h2>Selected projects</h2>
 
-    
-
-    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(35, 35, 35);">
+    <div class="rs-item hl">
+      <a class="rs-thumb" href="https://peymoon.github.io/discover/" style="background:#fff"><img src="assets/images/discover.gif" alt="DISCOVER selecting prompts from clusters in embedding space as training progresses" loading="lazy"></a>
+      <div>
+        <div class="rs-title"><a href="https://peymoon.github.io/discover/">DISCOVER: Online Variance-Guided Data Discovery for Budgeted Multimodal GRPO</a></div>
+        <div class="rs-venue">NeurIPS, 2026</div>
+        <div class="rs-links"><a href="https://peymoon.github.io/discover/">project page</a> / <a href="https://peymoon.github.io/discover/static/pdf/DISCOVER.pdf">paper</a></div>
+        <p class="rs-desc">Decides which prompts are worth labeling while a vision-language model trains, focusing on the ones it still answers inconsistently. With only 10% of the data labeled, it outperforms GRPO trained on the full pool for the same number of steps.</p>
+      </div>
     </div>
 
-    
-
-    
-    <div class="container">
-        <div class="mbr-section-head">
-            <div class="col-12">
-                <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                    <strong>Selected projects</strong></h4>
-                
-            </div>
-        </div>
-        <style>
-          .ldb-card{background:#fff;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.35);overflow:hidden;margin-top:2rem;text-align:left}
-          .ldb-card .ldb-body{padding:2rem}
-          .ldb-badge{display:inline-block;background:#002145;color:#fff;font-size:.8rem;font-weight:600;letter-spacing:.05em;padding:.25rem .7rem;border-radius:999px;margin-bottom:.8rem}
-          .ldb-card h3{color:#002145;margin-bottom:.4rem}
-          .ldb-authors{color:#666;font-size:.95rem;margin-bottom:1rem}
-          .ldb-card p{color:#333}
-          .ldb-stats{display:flex;flex-wrap:wrap;gap:.8rem;margin:1rem 0}
-          .ldb-stats div{flex:1 1 90px;background:#f2f5f9;border-radius:10px;padding:.7rem;text-align:center}
-          .ldb-stats b{display:block;font-size:1.4rem;color:#0055b7}
-          .ldb-stats span{font-size:.8rem;color:#555}
-          .ldb-links a{display:inline-block;margin:.25rem .4rem .25rem 0;padding:.45rem 1rem;border-radius:999px;border:2px solid #0055b7;color:#0055b7;font-weight:600;text-decoration:none}
-          .ldb-links a.primary,.ldb-links a:hover{background:#0055b7;color:#fff}
-          .ldb-video{background:#000}
-          .ldb-video video{width:100%;height:100%;object-fit:cover;display:block}
-          .ldb-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:1.5rem 2rem 2rem;background:#f8f8f8}
-          .ldb-steps figure{margin:0;text-align:center}
-          .ldb-steps img{width:100%;border-radius:10px;box-shadow:0 3px 12px rgba(0,0,0,.2)}
-          .ldb-steps figcaption{margin-top:.5rem;font-size:.85rem;color:#555}
-          .ldb-steps h5{grid-column:1/-1;margin:0;color:#002145}
-          @media(max-width:575px){.ldb-steps{grid-template-columns:1fr}}
-        </style>
-        <div class="row">
-            <div class="col-12 col-lg-10 mx-auto">
-              <div class="ldb-card">
-                <div class="row no-gutters">
-                    <div class="col-12 col-lg-6 ldb-video">
-                        <video autoplay loop muted playsinline controls preload="metadata">
-                            <source src="assets/images/Layered_diffusion_brush_teaser.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="col-12 col-lg-6 ldb-body">
-                        <span class="ldb-badge">ICCV 2025</span>
-                        <h3 class="mbr-fonts-style display-5"><strong>Layered Diffusion Brushes</strong></h3>
-                        <div class="ldb-authors">Peyman Gholami &amp; Robert Xiao &middot; University of British Columbia</div>
-                        <p class="mbr-fonts-style display-7">A training-free framework for interactive, layer-based image editing with diffusion models. Each layer is an independent, non-destructive, prompt-guided edit that can be stacked, hidden, reordered or re-weighted at any time.</p>
-                        <div class="ldb-stats">
-                            <div><b>~140 ms</b><span>per edit on a consumer GPU</span></div>
-                            <div><b>7 fps</b><span>interactive editing</span></div>
-                            <div><b>0</b><span>training or fine-tuning</span></div>
-                        </div>
-                        <div class="ldb-links">
-                            <a class="primary" href="https://layered-diffusion-brushes.github.io/">Project page</a>
-                            <a href="https://ldb.peymang.com/">Live demo</a>
-                            <a href="https://arxiv.org/abs/2405.00313">arXiv</a>
-                            <a href="https://www.youtube.com/watch?v=UwlNrfnN4Cw">Video</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="ldb-steps">
-                    <h5 class="mbr-fonts-style display-7"><strong>Editing in layers</strong></h5>
-                    <figure><img src="assets/images/layer0.png" alt="Layer 0: input image" loading="lazy"><figcaption>Layer 0 &middot; input image</figcaption></figure>
-                    <figure><img src="assets/images/layer1boat.png" alt="Layer 1: boat added with box brush" loading="lazy"><figcaption>Layer 1 &middot; boat (box brush)</figcaption></figure>
-                    <figure><img src="assets/images/layer2rocks.png" alt="Layer 2: rocks added with mask brush" loading="lazy"><figcaption>Layer 2 &middot; rocks (mask brush)</figcaption></figure>
-                </div>
-              </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="image1 cid-sb0r2laGwW" id="image1-1p">
-    
-
-    <div class="mbr-overlay" style="opacity: 0.9; background-color: rgb(35, 35, 35);">
+    <div class="rs-item hl">
+      <a class="rs-thumb" href="https://layered-diffusion-brushes.github.io/"><video autoplay loop muted playsinline poster="assets/images/layer1boat.png" aria-label="Adding a boat with Layered Diffusion Brushes"><source src="assets/videos/boat.mp4" type="video/mp4"></video></a>
+      <div>
+        <div class="rs-title"><a href="https://layered-diffusion-brushes.github.io/">Layered Diffusion Brushes</a></div>
+        <div class="rs-venue">ICCV, 2025</div>
+        <div class="rs-links"><a href="https://layered-diffusion-brushes.github.io/">project page</a> / <a href="https://ldb.peymang.com/">demo</a> / <a href="https://arxiv.org/abs/2405.00313">arXiv</a> / <a href="https://www.youtube.com/watch?v=UwlNrfnN4Cw">video</a></div>
+        <p class="rs-desc">Brush-based image editing with diffusion models, where every edit lives on its own layer and can be hidden, adjusted or removed later. No training required, and edits appear in real time.</p>
+      </div>
     </div>
 
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 col-lg-6">
-                <div class="image-wrapper">
-                    <img src="assets/images/face-tracking.gif" alt="Face tracking">
-                    <p class="mbr-description mbr-fonts-style pt-2 align-center display-4">
-                    Face tracking</p>
-                </div>
-            </div>
-            <div class="col-12 col-lg">
-                <div class="text-wrapper">
-                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5">
-                        <strong>Face tracking and identification</strong></h3>
-                    <p class="mbr-text mbr-fonts-style display-7">From 2018 to 2020, I worked at <a href="https://www.mirametrix.com/" class="text-primary">Mirametrix</a> as a research scientist, designing neural-network and computer-vision systems for face identification, accurate 2D/3D face and eyelid landmark estimation, 3D head-pose tracking, attention sensing, and point-of-gaze estimation.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="image2 cid-sb0qn5vzb9 mbr-parallax-background" id="image2-1o">
-    
-
-    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(255, 255, 255);">
+    <div class="rs-item">
+      <div class="rs-thumb"><img src="assets/images/face-tracking.gif" alt="Face landmark tracking" loading="lazy"></div>
+      <div>
+        <div class="rs-title">Face tracking and identification</div>
+        <div class="rs-venue"><a href="https://www.mirametrix.com/">Mirametrix</a>, 2018&ndash;2020</div>
+        <p class="rs-desc">Deep learning models for recognizing faces and tracking facial landmarks, eyelids, head pose, attention and gaze.</p>
+      </div>
     </div>
 
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 col-lg-6">
-                <div class="image-wrapper">
-                    <img src="assets/images/xxx-642x314.png" alt="OCT segmentation result">
-                    <p class="mbr-description mbr-fonts-style mt-2 align-center display-4">OCT image Segmentation</p>
-                </div>
-            </div>
-            <div class="col-12 col-lg">
-                <div class="text-wrapper">
-                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5">
-                        <strong>OCT image analysis</strong></h3>
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        My M.Sc. research focused on image processing and machine learning algorithms for biomedical image analysis, particularly Optical Coherence Tomography (OCT). The shape and thickness of retinal layers can change under different pathological conditions, so part of my work developed an efficient segmentation algorithm for delineating retinal layers and supporting ophthalmologists in diagnosis. </p>
-                </div>
-            </div>
-        </div>
+    <div class="rs-item">
+      <div class="rs-thumb"><img src="assets/images/xxx-642x314.png" alt="Retinal layer segmentation of an OCT scan" loading="lazy"></div>
+      <div>
+        <div class="rs-title">OCT image analysis</div>
+        <div class="rs-venue">M.Sc. research, University of Waterloo</div>
+        <p class="rs-desc">Automatic segmentation of retinal layers in OCT scans. Changes in the shape and thickness of these layers signal eye disease, so accurate segmentation helps ophthalmologists diagnose it.</p>
+      </div>
     </div>
-</section>
+
+    <div class="rs-item">
+      <a class="rs-thumb" href="https://www.youtube.com/watch?v=0BQmb73_BMU"><img src="assets/images/bioprinting-thumb.jpg" alt="Bioprinter needle over a petri dish" loading="lazy"></a>
+      <div>
+        <div class="rs-title"><a href="https://ieeexplore.ieee.org/document/8015107">3D bioprinting of skin cells</a></div>
+        <div class="rs-venue">IEEE Journal of Biomedical and Health Informatics</div>
+        <div class="rs-links"><a href="https://ieeexplore.ieee.org/document/8015107">paper</a> / <a href="https://www.youtube.com/watch?v=0BQmb73_BMU">video</a></div>
+        <p class="rs-desc">A system that measures a chronic wound's 3D shape and prints skin cells directly onto it, to help the wound heal faster.</p>
+      </div>
+    </div>
+  </div>
+</main>
 
 
-<section class="video4 cid-sb0rnV3wSN mbr-parallax-background" id="video4-1q">
-        <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(255, 255, 255);">
-    </div>
-    <div class="container">
-        <div class="title-wrapper mb-5">
-            
-        </div>
-        <div class="row align-items-center">
-            <div class="col-12 col-lg-6 video-block">
-                <div class="video-wrapper"><iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/0BQmb73_BMU?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=1&amp;playlist=0BQmb73_BMU" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
-                <p class="mbr-description pt-2 mbr-fonts-style display-4">Bioprinting of Chronic wounds</p>
-            </div>
-            <div class="col-12 col-lg">
-                <div class="text-wrapper">
-                    <h5 class="mbr-section-subtitle mbr-fonts-style mb-3 display-5"><strong>3D bioprinting of skin cells</strong></h5>
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        In this project I designed and implemented an end-to-end tool for the bio-printing of chronic wounds. <br>Chronic wounds are still one of the major challenges of the dermatology science. Using the proposed method, skin cells can be easily printed on the corresponding coordinates using a bio-compatible solution and the wound healing procedure can be accelerated dramatically. <br>The tool delineates the accurate 3D geometry of wounds using image processing and computer vision techniques. Afterwards, a 3D model is constructed based on those coordinates and the bioprinter robot will complete the process. The results of this project are published in <a href="https://ieeexplore.ieee.org/document/8015107" class="text-primary">Journal of Biomedical and Health Informatics</a>.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="footer4 cid-sb6KvgHjpt" once="footers" id="footer4-2c">
 
     
